@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-5">{{ _('Відомо, що образити художника може кожен!') }}</h2>
+    <p>{{ _('Тепер це стало простіше ніж коли-небудь - просто скористайтеся нашим Сервісом Образи Художників') }}</p>
+    <form action="{{ url_for('offend_artist') }}" method="get">
+        <button type="submit" class="btn btn-primary">{{ _('Образити художника') }}</button>
+    </form>
+</div>
+{% endblock %}
