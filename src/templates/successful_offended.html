@@ -3,6 +3,9 @@
 {% block content %}
 <div class="container">
     <h2>{{ _('Вітаємо, ви успішно образили художника!') }}</h2>
-    <img src="{{url_for('static', filename='img/artists.jpg')}}" align="middle" style="margin-bottom: 20px"/>
+    <img src="{{url_for('static', filename='img/artists.jpg')}}" style="max-width: 100%;
+    height: auto; margin-bottom: 20px;
+    display: block;" align="middle"/>
+
 </div>
 {% endblock %}
