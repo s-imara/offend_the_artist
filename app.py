@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, g, session
 from flask_babel import Babel, gettext as _, refresh
 
-app = Flask(__name__, template_folder='src/templates')
+app = Flask(__name__, template_folder='src/templates', static_folder='src/static')
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'src/translations'
 app.config['BABEL_DEFAULT_LOCALE'] = 'uk'
 app.config['SECRET_KEY'] = 'dlfkhsdkfghskdjf387589354oiftgrkdfhgfiew'
+
 
 def get_locale():
     return g.get('locale', app.config['BABEL_DEFAULT_LOCALE'])
@@ -24,7 +25,6 @@ def before_request():
         session['locale'] = request.args.get('lang')
     g.locale = session.get('locale', app.config['BABEL_DEFAULT_LOCALE'])
     refresh()
-
 
 
 @app.route('/')
